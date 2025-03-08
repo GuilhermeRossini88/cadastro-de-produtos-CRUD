@@ -30,12 +30,9 @@ public class ProductsController {
 
     @GetMapping("/products")
     public ResponseEntity<List<ProductModel>> getAllProducts(){
-        List<ProductModel> productslist = productsRepository.findAll();
-        if(productslist.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produ")
-        }
         return ResponseEntity.status(HttpStatus.OK).body(productsRepository.findAll());
     }
+
 
     @GetMapping("/products/{id}")
     public ResponseEntity<Object> getOneProduct(@PathVariable(value = "id") UUID id){
